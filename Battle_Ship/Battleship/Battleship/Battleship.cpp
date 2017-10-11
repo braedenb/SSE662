@@ -53,50 +53,50 @@ void main() {
 	printf("81 ,82 ,83 ,84 ,85 ,86 ,87 ,88\n");
 	printf("(3 spaces)Player 1 enter your Battle ship's poition: \n");
 	printf("position1: ");          /* Gets you ships positions */
-	scanf("%d", &battlepone);
+	scanf_s("%d", &battlepone);
 	printf("position2: ");
-	scanf("%d", &battleptwo);
+	scanf_s("%d", &battleptwo);
 	printf("position3: ");
-	scanf("%d", &battlepthree);
+	scanf_s("%d", &battlepthree);
 	printf("(2 spaces)Enter your Patrol boat's poition: \n");
 	printf("position1: ");
-	scanf("%d", &patrolpone);
+	scanf_s("%d", &patrolpone);
 	printf("position2: ");
-	scanf("%d", &patrolptwo);
+	scanf_s("%d", &patrolptwo);
 	printf("(3 spaces)Enter your Subs's poition: \n");
 	printf("position1: ");
-	scanf("%d", &subpone);
+	scanf_s("%d", &subpone);
 	printf("position2: ");
-	scanf("%d", &subptwo);
+	scanf_s("%d", &subptwo);
 	printf("position3: ");
-	scanf("%d", &subpthree);
+	scanf_s("%d", &subpthree);
 	printf("(4 spaces)Enter your Destroyers's poition: \n");
 	printf("position1: ");
-	scanf("%d", &destroypone);
+	scanf_s("%d", &destroypone);
 	printf("position2: ");
-	scanf("%d", &destroyptwo);
+	scanf_s("%d", &destroyptwo);
 	printf("position3: ");
-	scanf("%d", &destroypthree);
+	scanf_s("%d", &destroypthree);
 	printf("position4: ");
-	scanf("%d", &destroypfour);
+	scanf_s("%d", &destroypfour);
 	printf("(5 spaces)Enter your Air craft carier's poition: \n");
 	printf("position1: ");
-	scanf("%d", &airpone);
+	scanf_s("%d", &airpone);
 	printf("position2: ");
-	scanf("%d", &airptwo);
+	scanf_s("%d", &airptwo);
 	printf("position3: ");
-	scanf("%d", &airpthree);
+	scanf_s("%d", &airpthree);
 	printf("position4: ");
-	scanf("%d", &airpfour);
+	scanf_s("%d", &airpfour);
 	printf("position5: ");
-	scanf("%d", &airpfive);
+	scanf_s("%d", &airpfive);
 	printf("Here is your board: \n");
 	checkShips();
 	targeting();
 }
 void targeting() { /* Checks if target is hit or not and if youv destroyed all enemy ships */
 	for (i = 0; i<64; i++) {
-		getche();
+		_getche();
 		printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 		printf("P1 here is your status: \n");
 		printf("Boats position list: \n");
@@ -109,7 +109,7 @@ void targeting() { /* Checks if target is hit or not and if youv destroyed all e
 		printf(rowseven);
 		printf(roweight);
 		printf("Target: ");
-		scanf("%d", &target);
+		scanf_s("%d", &target);
 		switch (target) {
 		case 11:
 			switch (destroyponetwo) {
@@ -9457,7 +9457,7 @@ void targeting() { /* Checks if target is hit or not and if youv destroyed all e
 			break;
 		}
 		quitGame();
-		getche();
+		_getche();
 		printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 		printf("P2 here is your status: \n");
 		printf("Boats position list: \n");
@@ -9470,7 +9470,7 @@ void targeting() { /* Checks if target is hit or not and if youv destroyed all e
 		printf(rowseventwo);
 		printf(roweighttwo);
 		printf("Target: ");
-		scanf("%d", &target);
+		scanf_s("%d", &target);
 		switch (target) {
 		case 11:
 			switch (destroypone) {
@@ -18823,7 +18823,7 @@ void targeting() { /* Checks if target is hit or not and if youv destroyed all e
 void quitGame() {   /* Quit game when won */
 	if (hit >= 18) {
 		printf("Player 2 is the winner!!!\nType somthing to quit: ");
-		getche();
+		_getche();
 		exit(0);
 	}
 }
@@ -23534,7 +23534,7 @@ void checkShips() {   /* Charts ships position */
 	printf(rowsix);
 	printf(rowseven);
 	printf(roweight);
-	getche();
+	_getche();
 	printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 	printf("These are the posible positions: \n");
 	printf("11 ,12 ,13 ,14 ,15 ,16 ,17 ,18\n");
@@ -23547,43 +23547,43 @@ void checkShips() {   /* Charts ships position */
 	printf("81 ,82 ,83 ,84 ,85 ,86 ,87 ,88\n");
 	printf("(3 spaces)Player 2 enter your Battle ship's poition: \n");
 	printf("position1: ");    /* gets P2s ships positions */
-	scanf("%d", &battleponetwo);
+	scanf_s("%d", &battleponetwo);
 	printf("position2: ");
-	scanf("%d", &battleptwotwo);
+	scanf_s("%d", &battleptwotwo);
 	printf("position3: ");
-	scanf("%d", &battlepthreetwo);
+	scanf_s("%d", &battlepthreetwo);
 	printf("(2 spaces)Enter your Patrol boat's poition: \n");
 	printf("position1: ");
-	scanf("%d", &patrolponetwo);
+	scanf_s("%d", &patrolponetwo);
 	printf("position2: ");
-	scanf("%d", &patrolptwotwo);
+	scanf_s("%d", &patrolptwotwo);
 	printf("(3 spaces)Enter your Subs's poition: \n");
 	printf("position1: ");
-	scanf("%d", &subponetwo);
+	scanf_s("%d", &subponetwo);
 	printf("position2: ");
-	scanf("%d", &subptwotwo);
+	scanf_s("%d", &subptwotwo);
 	printf("position3: ");
-	scanf("%d", &subpthreetwo);
+	scanf_s("%d", &subpthreetwo);
 	printf("(4 spaces)Enter your Destroyers's poition: \n");
 	printf("position1: ");
-	scanf("%d", &destroyponetwo);
+	scanf_s("%d", &destroyponetwo);
 	printf("position2: ");
-	scanf("%d", &destroyptwotwo);
+	scanf_s("%d", &destroyptwotwo);
 	printf("position3: ");
-	scanf("%d", &destroypthreetwo);
+	scanf_s("%d", &destroypthreetwo);
 	printf("position4: ");
-	scanf("%d", &destroypfourtwo);
+	scanf_s("%d", &destroypfourtwo);
 	printf("(5 spaces)Enter your Air craft carier's poition: \n");
 	printf("position1: ");
-	scanf("%d", &airponetwo);
+	scanf_s("%d", &airponetwo);
 	printf("position2: ");
-	scanf("%d", &airptwotwo);
+	scanf_s("%d", &airptwotwo);
 	printf("position3: ");
-	scanf("%d", &airpthreetwo);
+	scanf_s("%d", &airpthreetwo);
 	printf("position4: ");
-	scanf("%d", &airpfourtwo);
+	scanf_s("%d", &airpfourtwo);
 	printf("position5: ");
-	scanf("%d", &airpfivetwo);
+	scanf_s("%d", &airpfivetwo);
 	printf("Here is your board: \n");
 	switch (battleponetwo) {
 	case 11:
