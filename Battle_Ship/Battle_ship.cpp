@@ -4,10 +4,20 @@
 #include <stdio.h>
 #include <conio.h>
 #include <stdlib.h>
+#include <iostream>
+#include <sstream>
+#include <string>
+using namespace std;
 
 void checkShips();
 void quitGame();
 void targeting();
+void InitializeBoards();
+void SetupBoards();
+void PrintBoard(int n);
+
+string board1[8][8];
+string board2[8][8];
 
 	int check[128];
 	int target, hit = 0, i;
@@ -43,6 +53,10 @@ void targeting();
 	char roweighttwo[50] = "81 82 83 84 85 86 87 88\n";
 
 main() {
+/*	InitializeBoards();
+	PrintBoard(1);
+	cout << endl;
+	PrintBoard(2); */
 	printf("Battle Ship\nBy Michael Marques\n");
 	printf("These are the posible positions: \n");
 	printf("11 ,12 ,13 ,14 ,15 ,16 ,17 ,18\n"); /* Displays posible ship positions */
@@ -95,6 +109,54 @@ main() {
 	printf("Here is your board: \n");
 	checkShips();
 	targeting();
+}
+void InitializeBoards() {
+	for (int i = 0; i<8; i++) {
+		for (int j = 0; j<8; j++) {
+			board1[i][j] = to_string(10*(i+1) + (j+1));
+			board2[i][j] = to_string(10*(i+1) + (j+1));
+		}
+	}
+}
+void PrintBoard(int n) {
+	cout << "Player " << n << "'s Board:" << endl;
+	if (n = 1) {
+		for (int i = 0; i<8; i++) {
+			for (int j = 0; j < 8; j++)
+				cout << board1[i][j] << " ";
+			cout << endl;
+		}
+	}
+	else {
+		for (int i = 0; i<8; i++) {
+			for (int j = 0; j<8; j++)
+				cout << board2[i][j] << " ";
+			cout << endl;
+		}
+	}
+}
+void SetupBoard(int n) {
+	cout << "Player 1, enter your ships' positions:" << endl;
+	cout << "Battle ship (3 spaces)" << endl;
+	for (int i = 0; i < 3; i++) {
+
+	}
+	cout << "Patrol boat (2 spaces)" << endl;
+	for (int i = 0; i < 2; i++) {
+
+	}
+	cout << "Submarine (3 spaces)" << endl;
+	for (int i = 0; i < 3; i++) {
+
+	}
+	cout << "Destroyer (4 spaces)" << endl;
+	for (int i = 0; i < 4; i++) {
+
+	}
+	cout << "Aircraft carrier (5 spaces)" << endl;
+	for (int i = 0; i < 5; i++) {
+
+	}
 }
 void targeting(){ /* Checks if target is hit or not and if youv destroyed all enemy ships */
 	for(i=0; i<64; i++) {
