@@ -2,10 +2,20 @@
 /* - By Michael Marques - */
 
 #include "stdafx.h"
+#include <iostream>
+#include <sstream>
+#include <string>
+using namespace std;
 
 void checkShips();
 void quitGame();
 void targeting();
+void InitializeBoards();
+void PrintBoard(int n);
+void SetupBoards();
+
+string board1[8][8];
+string board2[8][8];
 
 int check[128];
 int target, hit = 0, i;
@@ -93,6 +103,58 @@ void main() {
 	printf("Here is your board: \n");
 	checkShips();
 	targeting();
+}
+void InitializeBoards() {
+	for (int i = 0; i<8; i++) {
+		for (int j = 0; j<8; j++) {
+			board1[i][j] = to_string(10*(i+1) + (j+1));
+			board2[i][j] = to_string(10*(i+1) + (j+1));
+		}
+	}
+}
+void PrintBoard(int n) {
+	cout << "Player " << n << "'s Board:" << endl;
+	if (n = 1) {
+		for (int i = 0; i<8; i++) {
+			for (int j = 0; j < 8; j++)
+				cout << board1[i][j] << " ";
+			cout << endl;
+		}
+	}
+	else {
+		for (int i = 0; i<8; i++) {
+			for (int j = 0; j<8; j++)
+				cout << board2[i][j] << " ";
+			cout << endl;
+		}
+	}
+}
+void SetupBoards() {
+	for (int n = 1; n < 3; n++) {
+		cout << "Player " << n << ", enter your ships' positions:" << endl;
+		cout << "Battle ship (3 spaces)" << endl;
+		for (int i = 0; i < 3; i++) {
+			//setShip(n, "BA");
+		}
+		cout << "Patrol boat (2 spaces)" << endl;
+		for (int i = 0; i < 2; i++) {
+			//setShip(n, "PA");
+		}
+		cout << "Submarine (3 spaces)" << endl;
+		for (int i = 0; i < 3; i++) {
+			//setShip(n, "SU");
+		}
+		cout << "Destroyer (4 spaces)" << endl;
+		for (int i = 0; i < 4; i++) {
+			//setShip(n, "DA");
+		}
+		cout << "Aircraft carrier (5 spaces)" << endl;
+		for (int i = 0; i < 5; i++) {
+			//setShip(n, "AC");
+		}
+		cout << "Here is your board:" << endl;
+		PrintBoard(n);
+	}
 }
 void targeting() { /* Checks if target is hit or not and if youv destroyed all enemy ships */
 	for (i = 0; i<64; i++) {
