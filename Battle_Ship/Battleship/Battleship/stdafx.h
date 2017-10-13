@@ -11,6 +11,9 @@
 #include <tchar.h>
 #include <conio.h>
 #include <stdlib.h>
+#include <iostream>
+#include <sstream>
+#include <string>
 
 
 

@@ -1,56 +1,63 @@
-/* - Battle Ship - */
-/* - By Michael Marques - */
+/*  - Battle Ship
+	- By Michael Marques
+	- Refactored by Braeden Brettin, Matthew Deremer, and Luke Pace */
 
 #include "stdafx.h"
-#include <iostream>
-#include <sstream>
-#include <string>
 using namespace std;
 
-void checkShips();
-void quitGame();
-void targeting();
-void InitializeBoards();
-void PrintBoard(int n);
-void SetupBoards();
+class Battleship {
+	public:
+		bool Board1[8][8];
+		bool Board2[8][8];
 
-string board1[8][8];
-string board2[8][8];
+		string Message;
 
-int check[128];
-int target, hit = 0, i;
-int airpone, airptwo, airpthree, airpfour, airpfive;
-int destroypone, destroyptwo, destroypthree, destroypfour;
-int battlepone, battleptwo, battlepthree;
-int subpone, subptwo, subpthree;
-int patrolpone, patrolptwo;
+		int check[128];
+		int target, hit = 0, i;
+		int airpone, airptwo, airpthree, airpfour, airpfive;
+		int destroypone, destroyptwo, destroypthree, destroypfour;
+		int battlepone, battleptwo, battlepthree;
+		int subpone, subptwo, subpthree;
+		int patrolpone, patrolptwo;
 
-char rowone[50] = "11 12 13 14 15 16 17 18\n";
-char rowtwo[50] = "21 22 23 24 25 26 27 28\n";
-char rowthree[50] = "31 32 33 34 35 36 37 38\n";
-char rowfour[50] = "41 42 43 44 45 46 47 48\n";
-char rowfive[50] = "51 52 53 54 55 56 57 58\n";
-char rowsix[50] = "61 62 63 64 65 66 67 68\n";
-char rowseven[50] = "71 72 73 74 75 76 77 78\n";
-char roweight[50] = "81 82 83 84 85 86 87 88\n";
-char e;
+		char rowone[50] = "11 12 13 14 15 16 17 18\n";
+		char rowtwo[50] = "21 22 23 24 25 26 27 28\n";
+		char rowthree[50] = "31 32 33 34 35 36 37 38\n";
+		char rowfour[50] = "41 42 43 44 45 46 47 48\n";
+		char rowfive[50] = "51 52 53 54 55 56 57 58\n";
+		char rowsix[50] = "61 62 63 64 65 66 67 68\n";
+		char rowseven[50] = "71 72 73 74 75 76 77 78\n";
+		char roweight[50] = "81 82 83 84 85 86 87 88\n";
+		char e;
 
-int airponetwo, airptwotwo, airpthreetwo, airpfourtwo, airpfivetwo;
-int destroyponetwo, destroyptwotwo, destroypthreetwo, destroypfourtwo;
-int battleponetwo, battleptwotwo, battlepthreetwo;
-int subponetwo, subptwotwo, subpthreetwo;
-int patrolponetwo, patrolptwotwo;
+		int airponetwo, airptwotwo, airpthreetwo, airpfourtwo, airpfivetwo;
+		int destroyponetwo, destroyptwotwo, destroypthreetwo, destroypfourtwo;
+		int battleponetwo, battleptwotwo, battlepthreetwo;
+		int subponetwo, subptwotwo, subpthreetwo;
+		int patrolponetwo, patrolptwotwo;
 
-char rowonetwo[50] = "11 12 13 14 15 16 17 18\n";
-char rowtwotwo[50] = "21 22 23 24 25 26 27 28\n";
-char rowthreetwo[50] = "31 32 33 34 35 36 37 38\n";
-char rowfourtwo[50] = "41 42 43 44 45 46 47 48\n";
-char rowfivetwo[50] = "51 52 53 54 55 56 57 58\n";
-char rowsixtwo[50] = "61 62 63 64 65 66 67 68\n";
-char rowseventwo[50] = "71 72 73 74 75 76 77 78\n";
-char roweighttwo[50] = "81 82 83 84 85 86 87 88\n";
+		char rowonetwo[50] = "11 12 13 14 15 16 17 18\n";
+		char rowtwotwo[50] = "21 22 23 24 25 26 27 28\n";
+		char rowthreetwo[50] = "31 32 33 34 35 36 37 38\n";
+		char rowfourtwo[50] = "41 42 43 44 45 46 47 48\n";
+		char rowfivetwo[50] = "51 52 53 54 55 56 57 58\n";
+		char rowsixtwo[50] = "61 62 63 64 65 66 67 68\n";
+		char rowseventwo[50] = "71 72 73 74 75 76 77 78\n";
+		char roweighttwo[50] = "81 82 83 84 85 86 87 88\n";
 
-void main() {
+	public:
+		void main();
+		void checkShips();
+		void quitGame();
+		void targeting();
+		void InitializeBoards();
+		void SetupBoards();
+		void PrintBoards(int n);
+		void Fire(int player, int row, int col);
+		void CheckWin();
+};
+
+void Battleship::main() {
 	printf("Battle Ship\nBy Michael Marques\n");
 	printf("These are the posible positions: \n");
 	printf("11 ,12 ,13 ,14 ,15 ,16 ,17 ,18\n"); /* Displays posible ship positions */
@@ -104,32 +111,16 @@ void main() {
 	checkShips();
 	targeting();
 }
-void InitializeBoards() {
+
+void Battleship::InitializeBoards() {
 	for (int i = 0; i<8; i++) {
 		for (int j = 0; j<8; j++) {
-			board1[i][j] = to_string(10*(i+1) + (j+1));
-			board2[i][j] = to_string(10*(i+1) + (j+1));
+			Board1[i][j] = 10*(i+1) + (j+1);
+			Board2[i][j] = 10*(i+1) + (j+1);
 		}
 	}
 }
-void PrintBoard(int n) {
-	cout << "Player " << n << "'s Board:" << endl;
-	if (n = 1) {
-		for (int i = 0; i<8; i++) {
-			for (int j = 0; j < 8; j++)
-				cout << board1[i][j] << " ";
-			cout << endl;
-		}
-	}
-	else {
-		for (int i = 0; i<8; i++) {
-			for (int j = 0; j<8; j++)
-				cout << board2[i][j] << " ";
-			cout << endl;
-		}
-	}
-}
-void SetupBoards() {
+void Battleship::SetupBoards() {
 	for (int n = 1; n < 3; n++) {
 		cout << "Player " << n << ", enter your ships' positions:" << endl;
 		cout << "Battle ship (3 spaces)" << endl;
@@ -153,10 +144,35 @@ void SetupBoards() {
 			//setShip(n, "AC");
 		}
 		cout << "Here is your board:" << endl;
-		PrintBoard(n);
+		PrintBoards(n);
 	}
 }
-void targeting() { /* Checks if target is hit or not and if youv destroyed all enemy ships */
+void Battleship::PrintBoards(int n) {
+	cout << "Player " << n << "'s Board:" << endl;
+	if (n = 1) {
+		for (int i = 0; i<8; i++) {
+			for (int j = 0; j < 8; j++)
+				cout << Board1[i][j] << " ";
+			cout << endl;
+		}
+	}
+	else {
+		for (int i = 0; i<8; i++) {
+			for (int j = 0; j<8; j++)
+				cout << Board2[i][j] << " ";
+			cout << endl;
+		}
+	}
+}
+void Battleship::Fire(int player, int row, int col)
+{
+
+}
+void Battleship::CheckWin()
+{
+
+}
+void Battleship::targeting() { /* Checks if target is hit or not and if youv destroyed all enemy ships */
 	for (i = 0; i<64; i++) {
 		_getche();
 		printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
@@ -18882,14 +18898,14 @@ void targeting() { /* Checks if target is hit or not and if youv destroyed all e
 		void quitGame();
 	}
 }
-void quitGame() {   /* Quit game when won */
+void Battleship::quitGame() {   /* Quit game when won */
 	if (hit >= 18) {
 		printf("Player 2 is the winner!!!\nType somthing to quit: ");
 		_getche();
 		exit(0);
 	}
 }
-void checkShips() {   /* Charts ships position */
+void Battleship::checkShips() {   /* Charts ships position */
 	switch (battlepone) {
 	case 11:
 		rowone[0] = 'B';
