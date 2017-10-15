@@ -19,7 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{F43D4B3F-97F8-4277-B808-23FA6C50BB88}</ProjectGuid>
+    <ProjectGuid>{5D26F26E-ABAF-4281-BC7A-728202EF6ED3}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>Battleship</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>

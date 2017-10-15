@@ -1,63 +1,15 @@
-/*  - Battle Ship
-	- By Michael Marques
-	- Refactored by Braeden Brettin, Matthew Deremer, and Luke Pace */
+#pragma once
+//  - Battle Ship
+//	- By Michael Marques
+//	- Refactored by Braeden Brettin, Matthew Deremer, and Luke Pace
 
 #include "stdafx.h"
+#include "Battleship.h"
 using namespace std;
 
-class Battleship {
-	public:
-		bool Board1[8][8];
-		bool Board2[8][8];
-
-		string Message;
-
-		int check[128];
-		int target, hit = 0, i;
-		int airpone, airptwo, airpthree, airpfour, airpfive;
-		int destroypone, destroyptwo, destroypthree, destroypfour;
-		int battlepone, battleptwo, battlepthree;
-		int subpone, subptwo, subpthree;
-		int patrolpone, patrolptwo;
-
-		char rowone[50] = "11 12 13 14 15 16 17 18\n";
-		char rowtwo[50] = "21 22 23 24 25 26 27 28\n";
-		char rowthree[50] = "31 32 33 34 35 36 37 38\n";
-		char rowfour[50] = "41 42 43 44 45 46 47 48\n";
-		char rowfive[50] = "51 52 53 54 55 56 57 58\n";
-		char rowsix[50] = "61 62 63 64 65 66 67 68\n";
-		char rowseven[50] = "71 72 73 74 75 76 77 78\n";
-		char roweight[50] = "81 82 83 84 85 86 87 88\n";
-		char e;
-
-		int airponetwo, airptwotwo, airpthreetwo, airpfourtwo, airpfivetwo;
-		int destroyponetwo, destroyptwotwo, destroypthreetwo, destroypfourtwo;
-		int battleponetwo, battleptwotwo, battlepthreetwo;
-		int subponetwo, subptwotwo, subpthreetwo;
-		int patrolponetwo, patrolptwotwo;
-
-		char rowonetwo[50] = "11 12 13 14 15 16 17 18\n";
-		char rowtwotwo[50] = "21 22 23 24 25 26 27 28\n";
-		char rowthreetwo[50] = "31 32 33 34 35 36 37 38\n";
-		char rowfourtwo[50] = "41 42 43 44 45 46 47 48\n";
-		char rowfivetwo[50] = "51 52 53 54 55 56 57 58\n";
-		char rowsixtwo[50] = "61 62 63 64 65 66 67 68\n";
-		char rowseventwo[50] = "71 72 73 74 75 76 77 78\n";
-		char roweighttwo[50] = "81 82 83 84 85 86 87 88\n";
-
-	public:
-		void main();
-		void checkShips();
-		void quitGame();
-		void targeting();
-		void InitializeBoards();
-		void SetupBoards();
-		void PrintBoards(int n);
-		void Fire(int player, int row, int col);
-		void CheckWin();
-};
-
-void Battleship::main() {
+int main()
+{
+	Battleship battleship;
 	printf("Battle Ship\nBy Michael Marques\n");
 	printf("These are the posible positions: \n");
 	printf("11 ,12 ,13 ,14 ,15 ,16 ,17 ,18\n"); /* Displays posible ship positions */
@@ -70,53 +22,55 @@ void Battleship::main() {
 	printf("81 ,82 ,83 ,84 ,85 ,86 ,87 ,88\n");
 	printf("(3 spaces)Player 1 enter your Battle ship's poition: \n");
 	printf("position1: ");          /* Gets you ships positions */
-	scanf_s("%d", &battlepone);
+	scanf_s("%d", &battleship.battlepone);
 	printf("position2: ");
-	scanf_s("%d", &battleptwo);
+	scanf_s("%d", &battleship.battleptwo);
 	printf("position3: ");
-	scanf_s("%d", &battlepthree);
+	scanf_s("%d", &battleship.battlepthree);
 	printf("(2 spaces)Enter your Patrol boat's poition: \n");
 	printf("position1: ");
-	scanf_s("%d", &patrolpone);
+	scanf_s("%d", &battleship.patrolpone);
 	printf("position2: ");
-	scanf_s("%d", &patrolptwo);
+	scanf_s("%d", &battleship.patrolptwo);
 	printf("(3 spaces)Enter your Subs's poition: \n");
 	printf("position1: ");
-	scanf_s("%d", &subpone);
+	scanf_s("%d", &battleship.subpone);
 	printf("position2: ");
-	scanf_s("%d", &subptwo);
+	scanf_s("%d", &battleship.subptwo);
 	printf("position3: ");
-	scanf_s("%d", &subpthree);
+	scanf_s("%d", &battleship.subpthree);
 	printf("(4 spaces)Enter your Destroyers's poition: \n");
 	printf("position1: ");
-	scanf_s("%d", &destroypone);
+	scanf_s("%d", &battleship.destroypone);
 	printf("position2: ");
-	scanf_s("%d", &destroyptwo);
+	scanf_s("%d", &battleship.destroyptwo);
 	printf("position3: ");
-	scanf_s("%d", &destroypthree);
+	scanf_s("%d", &battleship.destroypthree);
 	printf("position4: ");
-	scanf_s("%d", &destroypfour);
+	scanf_s("%d", &battleship.destroypfour);
 	printf("(5 spaces)Enter your Air craft carier's poition: \n");
 	printf("position1: ");
-	scanf_s("%d", &airpone);
+	scanf_s("%d", &battleship.airpone);
 	printf("position2: ");
-	scanf_s("%d", &airptwo);
+	scanf_s("%d", &battleship.airptwo);
 	printf("position3: ");
-	scanf_s("%d", &airpthree);
+	scanf_s("%d", &battleship.airpthree);
 	printf("position4: ");
-	scanf_s("%d", &airpfour);
+	scanf_s("%d", &battleship.airpfour);
 	printf("position5: ");
-	scanf_s("%d", &airpfive);
+	scanf_s("%d", &battleship.airpfive);
 	printf("Here is your board: \n");
-	checkShips();
-	targeting();
+	battleship.checkShips();
+	battleship.targeting();
+
+	return 0;
 }
 
 void Battleship::InitializeBoards() {
 	for (int i = 0; i<8; i++) {
 		for (int j = 0; j<8; j++) {
-			Board1[i][j] = 10*(i+1) + (j+1);
-			Board2[i][j] = 10*(i+1) + (j+1);
+			Board1[i][j] = false;
+			Board2[i][j] = false;
 		}
 	}
 }
