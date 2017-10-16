@@ -13,7 +13,7 @@ using namespace std;
 void InitializeBoards();
 void PrintBoard(int n);
 void SetupBoards();
-void setShip(int n, int p, string ship);
+void setShip(int n, string ship);
 bool validShipPlacement(int n, int pos);
 void playGame();
 void fire();
@@ -74,30 +74,30 @@ void SetupBoards() {
 		cout << "Player " << n << ", enter your ships' positions:" << endl;
 		cout << "Battle ship (3 spaces)" << endl;
 		for (int i = 0; i < 3; i++) {
-			setShip(n, 3, "BA");
+			setShip(n, "BA");
 		}
 		cout << "Patrol boat (2 spaces)" << endl;
 		for (int i = 0; i < 2; i++) {
-			setShip(n, 2, "PA");
+			setShip(n, "PA");
 		}
 		cout << "Submarine (3 spaces)" << endl;
 		for (int i = 0; i < 3; i++) {
-			setShip(n, 3, "SU");
+			setShip(n, "SU");
 		}
 		cout << "Destroyer (4 spaces)" << endl;
 		for (int i = 0; i < 4; i++) {
-			setShip(n, 4, "DA");
+			setShip(n, "DA");
 		}
 		cout << "Aircraft carrier (5 spaces)" << endl;
 		for (int i = 0; i < 5; i++) {
-			setShip(n, 5, "AC");
+			setShip(n, "AC");
 		}
 		cout << endl << "Here is your board:" << endl << endl;
 		PrintBoard(n);
 	}
 }
 
-void setShip(int n, int p, string ship) {
+void setShip(int n, string ship) {
 	cout << "Position : ";
 	int pos;
 	cin >> pos;
