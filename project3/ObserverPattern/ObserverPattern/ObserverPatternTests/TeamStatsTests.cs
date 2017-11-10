@@ -12,9 +12,28 @@ namespace ObserverPattern.Tests
     public class TeamStatsTests
     {
         [TestMethod()]
+        public void unsubscribeTest()
+        {
+            MatchData matchData = new MatchData();
+            TeamStats teamStats = new TeamStats(matchData);
+            teamStats.unsubscribe();
+
+            Assert.AreEqual(null, teamStats.MatchData);
+        }
+
+        [TestMethod()]
         public void updateTest()
         {
-            Assert.Fail();
+            MatchData matchData = new MatchData();
+            TeamStats teamStats = new TeamStats(matchData);
+
+            List<Player> players = new List<Player>();
+            players.Add(new Player(true, true));
+            matchData.Players = players;
+            // This method calls update.
+            matchData.notifyObservers();
+
+            Assert.AreEqual(1, teamStats.Players.Count);
         }
     }
 }

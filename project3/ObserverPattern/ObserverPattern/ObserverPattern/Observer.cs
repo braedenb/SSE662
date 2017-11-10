@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace ObserverPattern
 {
-    interface Observer
+    public interface Observer
     {
-        void update();
+        void unsubscribe();
+        void update(List<Player> Players, int Minutes);
     }
 }

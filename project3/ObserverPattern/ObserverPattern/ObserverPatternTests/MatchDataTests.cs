@@ -14,25 +14,36 @@ namespace ObserverPattern.Tests
         [TestMethod()]
         public void registerObserverTest()
         {
-            Assert.Fail();
+            MatchData matchData = new MatchData();
+            // This constructor calls registerObserver.
+            PlayerStats playerStats = new PlayerStats(matchData);
+
+            Assert.AreEqual(1, matchData.Observers.Count);
         }
 
         [TestMethod()]
         public void removeObserverTest()
         {
-            Assert.Fail();
+            MatchData matchData = new MatchData();
+            PlayerStats playerStats = new PlayerStats(matchData);
+            // This method calls removeObserver.
+            playerStats.unsubscribe();
+
+            Assert.AreEqual(0, matchData.Observers.Count);
         }
 
         [TestMethod()]
-        public void notifyObserverTest()
+        public void notifyObserversTest()
         {
-            Assert.Fail();
-        }
+            MatchData matchData = new MatchData();
+            PlayerStats playerStats = new PlayerStats(matchData);
 
-        [TestMethod()]
-        public void getPlayersTest()
-        {
-            Assert.Fail();
+            List<Player> players = new List<Player>();
+            players.Add(new Player(true, true));
+            matchData.Players = players;
+            matchData.notifyObservers();
+
+            Assert.AreEqual(1, playerStats.Players.Count);
         }
     }
 }

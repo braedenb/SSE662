@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace ObserverPattern
 {
-    interface Subject
+    public interface Subject
     {
-        void registerObserver();
-        void removeObserver();
-        void notifyObserver();
+        void registerObserver(Observer o);
+        void removeObserver(Observer o);
+        void notifyObservers();
     }
 }
