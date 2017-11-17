@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace FactoryPattern
 {
-    class Program
+    class SoftE : IMajor
     {
-        static void Main(string[] args)
+        public void DeclareGraduation(int gradYear)
         {
+            Console.WriteLine("Declared major as Software Engineer graduating in " + gradYear);
         }
     }
 }
