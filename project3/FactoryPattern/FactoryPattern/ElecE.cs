@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FactoryPattern
 {
-    class ElecE : IMajor
+    public class ElecE : IMajor
     {
         public void DeclareGraduation(int gradYear)
         {
