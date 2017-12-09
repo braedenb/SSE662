@@ -1,0 +1,6 @@
+C:\Users\Matt\source\repos\StatePractice\StatePractice\obj\Debug\StatePractice.csproj.CoreCompileInputs.cache
+C:\Users\Matt\source\repos\StatePractice\StatePractice\bin\Debug\StatePractice.exe.config
+C:\Users\Matt\source\repos\StatePractice\StatePractice\bin\Debug\StatePractice.exe
+C:\Users\Matt\source\repos\StatePractice\StatePractice\bin\Debug\StatePractice.pdb
+C:\Users\Matt\source\repos\StatePractice\StatePractice\obj\Debug\StatePractice.exe
+C:\Users\Matt\source\repos\StatePractice\StatePractice\obj\Debug\StatePractice.pdb
